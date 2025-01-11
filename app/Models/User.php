@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public static function isNameDuplicate($name)
+    {
+        return self::where('name', $name)->exists();
+    }
 }
